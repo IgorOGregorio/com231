@@ -3,14 +3,21 @@ include_once "connection.php";
 header('content-type:text/html;charset=utf-8');
 date_default_timezone_set('America/Sao_Paulo');
 
-$http_origin = $_SERVER['HTTP_ORIGIN'];
+// $http_origin = $_SERVER['HTTP_ORIGIN'];
 
-if ($http_origin == "https://localhost:80") {
-    header("Access-Control-Allow-Origin: " . $http_origin);
-    header('Access-Control-Allow-Methods: GET, PUT, POST, DELETE, OPTIONS');
-    header('Access-Control-Max-Age: 1000');
-    header('Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With');
-}
+// if ($http_origin == "https://localhost:80") {
+//     header("Access-Control-Allow-Origin: " . $http_origin);
+//     header('Access-Control-Allow-Methods: GET, PUT, POST, DELETE, OPTIONS');
+//     header('Access-Control-Max-Age: 1000');
+//     header('Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With');
+// }
+
+header("Access-Control-Allow-Origin: * ");
+header("Access-Control-Allow-Credentials: true");
+header("Access-Control-Max-Age: 1000");
+header("Access-Control-Allow-Headers: X-Requested-With, Content-Type, Origin, Cache-Control, Pragma, Authorization, Accept, Accept-Encoding");
+header("Access-Control-Allow-Methods: PUT, POST, GET, OPTIONS, DELETE");
+header('Content-Type: application/json');
 
 $method = $_SERVER['REQUEST_METHOD'];
 switch ($method) {
