@@ -79,29 +79,12 @@ switch ($method) {
 
             foreach ($obj as $key => $value) {
 
-                // $sql = "insert into moeda values (null, '".$key."', '".$value."')";
-                // $result = mysqli_query($conn, $sql);
-
-                // if($result === FALSE){
-                //     break;
-                // }
-
-                // echo $sql . "<br>";
-
-                // if($key=='date'){
-                //     $date = $key;
-                // }
-
                 if ($key == $moeda) {
                     foreach ($value as $x => $y) {
                         $sql = "insert into conversao values (null, '" . $dt->format("Y-m-d") . "', '" . $moeda . "', '" . $x . "', '" . $y . "')";
                         $result = mysqli_query($conn, $sql);
-                        // echo $x .' - '. $y . '<br>';
                     }
-                    // echo $value->ada;
                 }
-
-                // echo $key . ' - ' . $value . '<br>';
             }
         }
         break;

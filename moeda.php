@@ -72,16 +72,15 @@ switch ($method) {
 
         $delete_conversao = "delete from conversao";
         $result_conversao = mysqli_query($conn, $delete_conversao);
-        if($result_conversao === TRUE){
+        if ($result_conversao === true) {
             $delete_moeda = "delete from moeda";
             $result_moeda = mysqli_query($conn, $delete_moeda);
-            if($result_moeda === TRUE){
+            if ($result_moeda === true) {
                 echo 1;
-            }else{
+            } else {
                 echo 0;
             }
         }
-
 
         break;
 }
